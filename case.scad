@@ -65,7 +65,7 @@ module box(){
             // CAM
             translate([-w_pcb / 2 + 20.86, h_pcb / 2 - 10.5, 10]) scale(tolScale) cylinder(h=20, r=8.25 / 2, center=true);
             // O rings
-            translate([28, 0, 0]) oRings(30, 5, 3);
+            translate([28.8, 0, 0]) oRings(30, 5, 3);
             translate([-28, 0, 0]) oRings(30, 5, 3);
         }
         translate([0, 0, 7]) standOffSquare(45.75, 31.1, 6, 3 * 0.98);
