@@ -44,7 +44,7 @@ module box(){
     //  Mockups
     // ----------
     // display();
-    // translate([0, 0, -1 / 2 + 8.4]) pcb();
+    translate([0, 0, -1 / 2 + 8.4]) pcb();
     union() {
         difference() {
             translate([0, 0, 14 / 2 - 1]) cube(size=[65, 48, 14], center=true);
@@ -54,19 +54,19 @@ module box(){
             // Cutout
             translate([24.25, 0, -20 / 2 + 12]) scale(tolScale) cube(size=[12, h_pcb, 20], center=true);
             // USB
-            translate([-35, 0, 6]) minkowski() {
-                cube(size=[20, 9-2, 3-2], center=true);
+            translate([-26, 0, 4]) minkowski() {
+                cube(size=[5, 9-2, 5], center=true);
                 sphere(r=1, $fn=20);
             }
-            translate([-38, 0, 6]) minkowski() {
+            translate([-38.5, 0, 6]) minkowski() {
                 cube(size=[20 - 4, 12 - 4, 7 - 4], center=true);
-                sphere(r=2, $fn=20);
+                sphere(r=2.5, $fn=20);
             }
             // CAM
             translate([-w_pcb / 2 + 20.86, h_pcb / 2 - 10.5, 10]) scale(tolScale) cylinder(h=20, r=8.25 / 2, center=true);
             // O rings
-            translate([28, 0, 0]) oRings(45, 3.5, 3);
-            translate([-28, 0, 0]) oRings(45, 3.5, 3);
+            translate([28, 0, 0]) oRings(30, 5, 3);
+            translate([-28, 0, 0]) oRings(30, 5, 3);
         }
         translate([0, 0, 7]) standOffSquare(45.75, 31.1, 6, 3 * 0.98);
     }

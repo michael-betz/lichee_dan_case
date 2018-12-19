@@ -11,4 +11,6 @@ Cross section view, showing how the PCB sits inside.
 
 ![pic2](pic2.png)
 
-__Work in progress__
+## Status
+Fabricated it on a Cetus 3D printer with 0.2 mm layer height.
+After a minor revision, everything fits now as it should.
