@@ -11,8 +11,8 @@ module standOffSquare(dx, dy, h, d){
 }
 
 module oRings(angle, depth, width) {
-    translate([0, 48 / 2, 13]) rotate([-angle, 0, 0]) cube(size=[width, 20, depth], center=true);
-    translate([0, -48 / 2, 13]) rotate([angle, 0, 0]) cube(size=[width, 20, depth], center=true);
+    translate([0, 48 / 2, 14]) rotate([-angle, 0, 0]) cube(size=[width, 20, depth], center=true);
+    translate([0, -48 / 2, 14]) rotate([angle, 0, 0]) cube(size=[width, 20, depth], center=true);
     translate([0, 48 / 2, -1]) rotate([angle, 0, 0]) cube(size=[width, 20, depth], center=true);
     translate([0, -48 / 2, -1]) rotate([-angle, 0, 0]) cube(size=[width, 20, depth], center=true);
 }
@@ -47,15 +47,16 @@ module box(){
     // translate([0, 0, -1 / 2 + 8.4]) pcb();
     union() {
         difference() {
-            translate([0, 0, 14 / 2 - 1]) cube(size=[65, 48, 14], center=true);
+            translate([0, 0, 15 / 2 - 1]) cube(size=[65, 48, 15], center=true);
+            // Extrusions
             translate([0, 0, -2]) scale(tolScale) cube(size=[60, 43, 10], center=true);
             translate([0, 0, -20 / 2 + 8.4]) scale(tolScale) cube(size=[w_pcb, h_pcb, 20], center=true);
-            translate([0, 0, -20 / 2 + 12]) scale(tolScale) cube(size=[37, 30, 20], center=true);
+            translate([0, 0, -20 / 2 + 13]) scale(tolScale) cube(size=[37, 30, 20], center=true);
             // Cutout
-            translate([24.25, 0, -20 / 2 + 12]) scale(tolScale) cube(size=[12, h_pcb, 20], center=true);
+            translate([24.25, 0, -20 / 2 + 13]) scale(tolScale) cube(size=[12, h_pcb, 20], center=true);
             // USB
             translate([-26, 0, 4]) minkowski() {
-                cube(size=[5, 9-2, 5], center=true);
+                cube(size=[5, 9-1.5, 5], center=true);
                 sphere(r=1, $fn=20);
             }
             translate([-38.5, 0, 6]) minkowski() {
@@ -65,8 +66,8 @@ module box(){
             // CAM
             translate([-w_pcb / 2 + 20.86, h_pcb / 2 - 10.5, 10]) scale(tolScale) cylinder(h=20, r=8.25 / 2, center=true);
             // O rings
-            translate([28.8, 0, 0]) oRings(30, 5, 3);
-            translate([-28, 0, 0]) oRings(30, 5, 3);
+            translate([27, 0, 0]) oRings(30, 5, 3);
+            translate([-28.8, 0, 0]) oRings(30, 5, 3);
         }
         translate([0, 0, 7]) standOffSquare(45.75, 31.1, 6, 3 * 0.98);
     }
