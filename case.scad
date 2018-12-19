@@ -44,7 +44,7 @@ module box(){
     //  Mockups
     // ----------
     // display();
-    translate([0, 0, -1 / 2 + 8.4]) pcb();
+    // translate([0, 0, -1 / 2 + 8.4]) pcb();
     union() {
         difference() {
             translate([0, 0, 14 / 2 - 1]) cube(size=[65, 48, 14], center=true);
